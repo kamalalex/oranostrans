@@ -10,6 +10,7 @@ type Props = {
 const heroImages: Record<string, string> = {
     'transport-local': '/images/services/local-transport-hero.jpg',
     'transport-routier': '/images/services/road-transport-hero.jpg',
+    'transport-maritime': '/images/services/sea-transport-hero.jpg',
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -67,7 +68,7 @@ export default async function ServicePage({ params }: Props) {
                             src={heroImage}
                             alt={service.title}
                             fill
-                            className="object-cover object-center opacity-40"
+                            className="object-cover object-center opacity-90"
                             priority
                             sizes="100vw"
                         />
