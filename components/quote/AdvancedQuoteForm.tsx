@@ -65,6 +65,7 @@ export default function AdvancedQuoteForm({ dict, lang }: AdvancedQuoteFormProps
 
             if (response.ok) {
                 setStatus('success')
+                window.scrollTo({ top: 0, behavior: 'smooth' })
             } else {
                 const errorData = await response.json()
                 console.error('Submission failed:', errorData)
