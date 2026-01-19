@@ -1,4 +1,5 @@
 import { getDictionary } from '@/lib/get-dictionary'
+import ReactMarkdown from 'react-markdown'
 
 export default async function LegalPage({
     params,
@@ -26,19 +27,14 @@ export default async function LegalPage({
     }
 
     return (
-        <main className="flex-grow py-24">
+        <main className="flex-grow py-24 bg-zinc-50 dark:bg-zinc-950">
             <div className="container mx-auto px-4 max-w-4xl">
-                <h1 className="text-4xl font-extrabold mb-12 text-primary">{legalInfo.title}</h1>
-                <div className="prose prose-lg dark:prose-invert max-w-none">
-                    <p className="text-xl text-muted leading-relaxed whitespace-pre-wrap">
-                        {legalInfo.content}
-                    </p>
-                    <div className="mt-12 p-8 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-border">
-                        <p className="text-sm text-zinc-500 italic">
-                            {lang === 'fr'
-                                ? "Ceci est une version simplifiée des mentions légales pour démonstration."
-                                : "This is a simplified version of the legal notice for demonstration."}
-                        </p>
+                <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-border p-8 md:p-16 shadow-xl">
+                    <h1 className="text-4xl md:text-5xl font-black mb-12 text-primary tracking-tight">{legalInfo.title}</h1>
+                    <div className="prose-custom">
+                        <ReactMarkdown>
+                            {legalInfo.content}
+                        </ReactMarkdown>
                     </div>
                 </div>
             </div>

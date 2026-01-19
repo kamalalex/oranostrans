@@ -3,9 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #111827;
-  --primary: #1877F2;      /* Facebook Blue */
-  --secondary: #E60023;    /* Pinterest Red */
-  --accent: #FFD700;       /* PagesJaunes Yellow */
+  --primary: #1877F2;
+  /* Facebook Blue */
+  --secondary: #E60023;
+  /* Pinterest Red */
+  --accent: #FFD700;
+  /* PagesJaunes Yellow */
   --muted: #6B7280;
   --border: #E5E7EB;
 }
@@ -45,4 +48,20 @@ body {
 
 .dark .glass {
   background: rgba(3, 7, 18, 0.7);
+}
+
+.prose-custom h3 {
+  @apply text-xl font-bold text-foreground mt-8 mb-4 border-l-4 border-primary pl-4;
+}
+
+.prose-custom p {
+  @apply text-muted leading-relaxed mb-6 text-lg;
+}
+
+.prose-custom strong {
+  @apply text-foreground font-bold;
+}
+
+.prose-custom ul {
+  @apply list-disc list-inside mb-6 space-y-2 text-muted;
 }
