@@ -1,9 +1,14 @@
 import { getDictionary } from '@/lib/get-dictionary'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 type Props = {
     params: Promise<{ lang: 'en' | 'fr'; slug: string }>
+}
+
+const heroImages: Record<string, string> = {
+    'transport-local': '/images/services/local-transport-hero.jpg',
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -49,30 +54,47 @@ export default async function ServicePage({ params }: Props) {
     }
 
     const service = services[serviceKey]
+    const heroImage = heroImages[slug]
 
     return (
         <main className="flex-grow">
             {/* Hero Section for Service */}
-            <section className="bg-zinc-950 text-white py-24 relative overflow-hidden">
-                <div className="container mx-auto px-4 relative z-10">
+            <section className="bg-zinc-950 text-white py-24 md:py-32 relative overflow-hidden flex items-center min-h-[50vh]">
+                {heroImage && (
+                    <>
+                        <Image
+                            src={heroImage}
+                            alt={service.title}
+                            fill
+                            className="object-cover object-center opacity-40"
+                            priority
+                            sizes="100vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent z-10" />
+                    </>
+                )}
+
+                <div className="container mx-auto px-4 relative z-20">
                     <Link
                         href={`/${lang}`}
-                        className="inline-flex items-center text-primary font-bold mb-8 hover:underline"
+                        className="inline-flex items-center text-primary font-bold mb-8 hover:translate-x-[-4px] transition-transform"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                         </svg>
                         {dict.navigation.home}
                     </Link>
-                    <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
+                    <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
                         {service.title}
                     </h1>
-                    <p className="text-2xl text-zinc-400 max-w-2xl leading-relaxed">
+                    <p className="text-2xl text-zinc-300 max-w-2xl leading-relaxed font-medium">
                         {service.description}
                     </p>
                 </div>
 
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform translate-x-32" />
+                {!heroImage && (
+                    <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform translate-x-32" />
+                )}
             </section>
 
             {/* Content Section */}
