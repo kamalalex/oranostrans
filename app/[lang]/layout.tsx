@@ -37,6 +37,10 @@ export const metadata: Metadata = {
         alt: "ORANOS TRANS Global Logistics",
       },
     ],
+  },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
   }
 };
 
@@ -51,7 +55,7 @@ export default async function RootLayout({
   const dict = await getDictionary(lang);
 
   return (
-    <html lang={lang} className="scroll-smooth">
+    <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary/20 selection:text-primary`}
       >

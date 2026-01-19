@@ -49,11 +49,31 @@ export default function AdvancedQuoteForm({ dict, lang }: AdvancedQuoteFormProps
         e.preventDefault()
         setStatus('sending')
 
-        // Simulate API call
-        setTimeout(() => {
-            console.log('Form submitted:', { ...formData, files })
-            setStatus('success')
-        }, 2000)
+        try {
+            const data = new FormData()
+            Object.entries(formData).forEach(([key, value]) => {
+                data.append(key, value)
+            })
+            files.forEach(file => {
+                data.append('files', file)
+            })
+
+            const response = await fetch('/api/quote', {
+                method: 'POST',
+                body: data
+            })
+
+            if (response.ok) {
+                setStatus('success')
+            } else {
+                const errorData = await response.json()
+                console.error('Submission failed:', errorData)
+                setStatus('error')
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error)
+            setStatus('error')
+        }
     }
 
     if (status === 'success') {

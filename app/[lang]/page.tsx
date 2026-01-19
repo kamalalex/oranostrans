@@ -1,6 +1,5 @@
 import { getDictionary } from '@/lib/get-dictionary'
 import Link from 'next/link'
-import AdvancedQuoteForm from '@/components/quote/AdvancedQuoteForm'
 
 export default async function Home({
   params,
@@ -80,13 +79,13 @@ export default async function Home({
             </p>
             <div className="flex flex-wrap gap-4 font-bold">
               <Link
-                href="#quote"
+                href={`/${lang}/get-quote`}
                 className="bg-primary hover:bg-blue-600 text-white px-10 py-4 rounded-full transition-all transform hover:scale-105 shadow-xl shadow-blue-500/40"
               >
                 {dict.navigation.quote}
               </Link>
               <Link
-                href={`/${lang}/services/transport-local`}
+                href="#services"
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-full transition-all"
               >
                 {dict.home.hero.cta}
@@ -96,26 +95,31 @@ export default async function Home({
         </div>
       </section>
 
-      {/* Advanced Quote Section */}
-      <section id="quote" className="py-24 bg-zinc-50 dark:bg-zinc-950/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-              {dict.quote.title}
-            </h2>
-            <p className="text-xl text-muted">
-              {dict.quote.subtitle}
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-            <AdvancedQuoteForm dict={dict} lang={lang} />
-          </div>
+      {/* CTA Section (Replacing the form) */}
+      <section className="py-24 bg-primary overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 100 L100 0 L100 100 Z" fill="white" />
+          </svg>
+        </div>
+        <div className="container mx-auto px-4 relative z-10 text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-8 italic">
+            {lang === 'fr' ? 'Besoin d\'un transporteur fiable ?' : 'Need a reliable freight partner?'}
+          </h2>
+          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-2xl mx-auto">
+            {dict.quote.subtitle}
+          </p>
+          <Link
+            href={`/${lang}/get-quote`}
+            className="inline-block bg-white text-primary px-12 py-5 rounded-full font-black text-xl hover:bg-zinc-100 transition-all transform hover:scale-110 shadow-2xl"
+          >
+            {dict.quote.fields.submit}
+          </Link>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 container mx-auto px-4">
+      <section id="services" className="py-24 container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">{dict.home.services_section.title}</h2>
           <p className="text-xl text-muted max-w-2xl mx-auto">

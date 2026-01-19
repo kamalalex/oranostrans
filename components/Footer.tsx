@@ -7,11 +7,15 @@ export default function Footer({ lang, dict }: { lang: string, dict: any }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Col */}
                     <div className="space-y-6">
-                        <Link href={`/${lang}`} className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                                O
-                            </div>
-                            <span className="font-bold text-2xl tracking-tight text-white">ORANOS <span className="text-secondary">TRANS</span></span>
+                        <Link href={`/${lang}`} className="flex items-center gap-3 group">
+                            <img
+                                src="/logo.png"
+                                alt="ORANOS TRANS"
+                                className="h-10 w-auto object-contain transition-transform group-hover:scale-110 brightness-0 invert"
+                            />
+                            <span className="font-bold text-2xl tracking-tighter text-white">
+                                ORANOS <span className="text-secondary">TRANS</span>
+                            </span>
                         </Link>
                         <p className="leading-relaxed">
                             {dict.home.hero.subtitle}
@@ -99,7 +103,7 @@ export default function Footer({ lang, dict }: { lang: string, dict: any }) {
                 </div>
 
                 <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                    <p>© {new Date().getFullYear()} ORANOS TRANS. All rights reserved.</p>
+                    <p suppressHydrationWarning>© {new Date().getFullYear()} ORANOS TRANS. All rights reserved.</p>
                     <div className="flex gap-8">
                         <Link href={`/${lang}/legal/mentions-legales`} className="hover:text-white transition-colors">
                             {dict.legal.mentions.title}
