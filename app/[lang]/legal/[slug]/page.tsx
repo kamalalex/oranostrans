@@ -3,6 +3,15 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import ContactObfuscator from '@/components/ContactObfuscator'
 
+export async function generateStaticParams() {
+    const langs = ['en', 'fr']
+    const slugs = ['privacy-policy', 'terms-conditions', 'mentions-legales']
+
+    return langs.flatMap((lang) =>
+        slugs.map((slug) => ({ lang, slug }))
+    )
+}
+
 export default async function LegalPage({
     params,
 }: {

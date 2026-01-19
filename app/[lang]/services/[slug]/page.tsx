@@ -14,6 +14,20 @@ const heroImages: Record<string, string> = {
     'transport-aerien': '/images/services/air-transport-hero.jpg',
 }
 
+export async function generateStaticParams() {
+    const langs = ['en', 'fr']
+    const slugs = [
+        'transport-local',
+        'transport-routier',
+        'transport-maritime',
+        'transport-aerien'
+    ]
+
+    return langs.flatMap((lang) =>
+        slugs.map((slug) => ({ lang, slug }))
+    )
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { lang, slug } = await params
     const dict = await getDictionary(lang)

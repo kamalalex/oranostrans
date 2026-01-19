@@ -58,9 +58,12 @@ export default function AdvancedQuoteForm({ dict, lang }: AdvancedQuoteFormProps
                 data.append('files', file)
             })
 
-            const response = await fetch('/api/quote', {
+            const response = await fetch('https://formspree.io/f/rmi.search@gmail.com', {
                 method: 'POST',
-                body: data
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
 
             if (response.ok) {

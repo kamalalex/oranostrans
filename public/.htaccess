@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect root to /fr
+  RewriteRule ^$ /fr/ [L,R=301]
+
+  # Handle clean URLs (remove .html from address bar)
+  # If requested as /page.html, redirect to /page
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
+  RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+  # If requested as /page, internal rewrite to /page.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
