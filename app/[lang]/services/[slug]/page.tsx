@@ -9,6 +9,7 @@ type Props = {
 
 const heroImages: Record<string, string> = {
     'transport-local': '/images/services/local-transport-hero.jpg',
+    'transport-routier': '/images/services/road-transport-hero.jpg',
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -132,7 +133,7 @@ export default async function ServicePage({ params }: Props) {
                                 : 'Our experts will get back to you within 24h with a tailored solution.'}
                         </p>
                         <Link
-                            href={`/${lang}/contact`}
+                            href={`/${lang}/get-quote`}
                             className="block w-full text-center bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95"
                         >
                             {dict.navigation.quote}
@@ -149,7 +150,7 @@ export default async function ServicePage({ params }: Props) {
                             : 'Ready to optimize your logistics?'}
                     </h2>
                     <Link
-                        href={`/${lang}/contact`}
+                        href={`/${lang}/get-quote`}
                         className="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all"
                     >
                         {lang === 'fr' ? 'Contactez-nous aujourd\'hui' : 'Contact us today'}
