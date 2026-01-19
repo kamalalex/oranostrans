@@ -11,6 +11,7 @@ const heroImages: Record<string, string> = {
     'transport-local': '/images/services/local-transport-hero.jpg',
     'transport-routier': '/images/services/road-transport-hero.jpg',
     'transport-maritime': '/images/services/sea-transport-hero.jpg',
+    'transport-aerien': '/images/services/air-transport-hero.jpg',
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
