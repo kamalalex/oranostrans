@@ -2,17 +2,18 @@
   RewriteEngine On
   RewriteBase /
 
-  # Redirect root to /fr
+  # Redirect root to /fr/
   RewriteRule ^$ /fr/ [L,R=301]
 
-  # Handle clean URLs (remove .html from address bar)
-  # If requested as /page.html, redirect to /page
-  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
-  RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+  # Ensure DirectoryIndex is set
+  DirectoryIndex index.html
 
-  # If requested as /page, internal rewrite to /page.html
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  # Fix for Hostinger: If a directory is requested without a slash, redirect to the slash version
+  # This prevents 403 on directories like /fr, /fr/about, etc.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # Standard 404 handling for static sites
+  ErrorDocument 404 /404.html
 </IfModule>
