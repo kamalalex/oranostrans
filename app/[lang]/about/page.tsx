@@ -1,4 +1,5 @@
 import { getDictionary } from '@/lib/get-dictionary'
+import ClientSlider from '@/components/ClientSlider'
 
 export default async function AboutPage({
     params,
@@ -59,6 +60,9 @@ export default async function AboutPage({
                     </div>
                 </div>
             </section>
+
+            {/* Client Logos Slider */}
+            <ClientSlider title={dict.about.clients} />
         </main>
     )
 }
