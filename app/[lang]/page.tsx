@@ -1,3 +1,4 @@
+import ClientSlider from '@/components/ClientSlider';
 import { getDictionary } from '@/lib/get-dictionary'
 import Link from 'next/link'
 
@@ -153,6 +154,8 @@ export default async function Home({
           ))}
         </div>
       </section>
+      {/* Client Logos Slider */}
+      <ClientSlider title={dict.about.clients} />
     </main>
   )
 }

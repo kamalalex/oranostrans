@@ -125,15 +125,15 @@
             "send": "Envoyer le message",
             "placeholder_name": "Votre nom",
             "placeholder_email": "votre@email.com",
-            "placeholder_phone": "+33 6 00 00 00 00",
+            "placeholder_phone": "+212 6 00 00 00 00",
             "placeholder_subject": "Sujet de votre demande",
             "placeholder_message": "Comment pouvons-nous vous aider ?"
         },
         "info": {
             "title": "Coordonnées",
-            "address": "Siège social ORANOS TRANS, 75000 Paris, France",
-            "phone": "+33 1 23 45 67 89",
-            "email": "contact@oranos-trans.com"
+            "address": "4 LOT HOURIA, Boulevard Palestine, Mohammedia – Maroc",
+            "phone": "+212 6 63 71 40 40",
+            "email": "contact@oranostrans.com"
         }
     },
     "legal": {

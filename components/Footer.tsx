@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ContactObfuscator from './ContactObfuscator'
 
 export default function Footer({ lang, dict }: { lang: string, dict: any }) {
     return (
@@ -87,23 +88,42 @@ export default function Footer({ lang, dict }: { lang: string, dict: any }) {
                                 <span>{dict.contact.info.address}</span>
                             </li>
                             <li className="flex items-center gap-3">
-                                <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                                <span>{dict.contact.info.phone}</span>
+                                <ContactObfuscator
+                                    type="phone"
+                                    value={dict.contact.info.phone}
+                                    className="hover:text-primary transition-colors flex items-center gap-3"
+                                    icon={
+                                        <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    }
+                                />
                             </li>
                             <li className="flex items-center gap-3">
-                                <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                                <span>{dict.contact.info.email}</span>
+                                <ContactObfuscator
+                                    type="email"
+                                    value={dict.contact.info.email}
+                                    className="hover:text-primary transition-colors flex items-center gap-3"
+                                    icon={
+                                        <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    }
+                                />
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                    <p suppressHydrationWarning>© {new Date().getFullYear()} ORANOS TRANS. All rights reserved.</p>
+                <div className="pt-8 border-t border-zinc-900 flex flex-col lg:flex-row justify-between items-center gap-6 text-sm">
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-center md:text-left">
+                        <p suppressHydrationWarning>© {new Date().getFullYear()} ORANOS TRANS. All rights reserved.</p>
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-zinc-500 whitespace-nowrap">
+                            <span>RC : 32953</span>
+                            <span>ICE : 003262477000082</span>
+                            <span>CNSS : 1539568</span>
+                        </div>
+                    </div>
                     <div className="flex gap-8">
                         <Link href={`/${lang}/legal/mentions-legales`} className="hover:text-white transition-colors">
                             {dict.legal.mentions.title}
