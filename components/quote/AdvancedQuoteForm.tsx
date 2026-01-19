@@ -58,7 +58,12 @@ export default function AdvancedQuoteForm({ dict, lang }: AdvancedQuoteFormProps
                 data.append('files', file)
             })
 
-            const response = await fetch('/api/send-quote.php', {
+            // Determine endpoint: use Next.js API in dev, PHP script in static production
+            const endpoint = window.location.hostname === 'localhost'
+                ? '/api/quote'
+                : '/api/send-quote.php';
+
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 body: data
             })
