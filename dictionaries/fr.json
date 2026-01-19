@@ -1,0 +1,204 @@
+{
+    "navigation": {
+        "home": "Accueil",
+        "services": "Services",
+        "about": "Qui sommes-nous",
+        "contact": "Contact",
+        "quote": "Demander un devis"
+    },
+    "home": {
+        "hero": {
+            "title": "Expertise Logistique & Transport Global",
+            "subtitle": "ORANOS TRANS : Votre partenaire de confiance pour des solutions de transport routier, maritime, aérien et local.",
+            "cta": "Découvrir nos services"
+        },
+        "services_section": {
+            "title": "Nos Pôles d'Expertise",
+            "subtitle": "Des solutions sur mesure pour tous vos besoins logistiques"
+        }
+    },
+    "services": {
+        "local": {
+            "title": "Transport Local",
+            "slug": "transport-local",
+            "description": "Livraison rapide et sécurisée au niveau urbain et périurbain. Flexibilité maximale pour vos courses urgentes.",
+            "long_description": "Notre service de transport local est conçu pour répondre aux exigences de rapidité et de fiabilité des entreprises et particuliers en milieu urbain. Que ce soit pour des plis urgents ou des marchandises volumineuses, nous assurons une livraison sans accroc.",
+            "features": [
+                "Livraison le jour même",
+                "Suivi en temps réel",
+                "Flotte adaptée (Vans, Camionnettes)",
+                "Service 24/7"
+            ],
+            "meta": {
+                "title": "Transport Local - ORANOS TRANS | Livraison Urbaine Rapide",
+                "description": "Besoin d'un transporteur local fiable ? ORANOS TRANS assure vos livraisons urbaines avec rapidité et expertise."
+            }
+        },
+        "road": {
+            "title": "Transport Routier",
+            "slug": "transport-routier",
+            "description": "Solutions flexibles pour le transport national et régional par route. Une flotte moderne pour toutes vos marchandises.",
+            "long_description": "ORANOS TRANS propose des solutions de transport routier sur mesure, couvrant l'ensemble du territoire national et régional. Nous gérons tous types de chargements, du lot partiel (LTL) au lot complet (FTL).",
+            "features": [
+                "Couverture nationale",
+                "Transport FTL & LTL",
+                "Respect des délais",
+                "Sécurité certifiée"
+            ],
+            "meta": {
+                "title": "Transport Routier - ORANOS TRANS | Fret National & Régional",
+                "description": "Expert en transport routier national. ORANOS TRANS garantit la sécurité et la ponctualité de vos expéditions par route."
+            }
+        },
+        "sea": {
+            "title": "Transport Maritime",
+            "slug": "transport-maritime",
+            "description": "Import/Export Cargo via les routes maritimes internationales. Solutions FCL et LCL compétitives.",
+            "long_description": "Grâce à notre réseau de partenaires portuaires, nous offrons des solutions de transport maritime mondiales. Nous gérons l'intégralité de la chaîne logistique, de l'empotage aux formalités douanières.",
+            "features": [
+                "FCL (Full Container Load)",
+                "LCL (Less than Container Load)",
+                "Logistique portuaire",
+                "Gestion douanière"
+            ],
+            "meta": {
+                "title": "Transport Maritime - ORANOS TRANS | Import/Export Global",
+                "description": "Optimisez vos coûts de transport maritime avec ORANOS TRANS. Expert en logistique portuaire et fret international."
+            }
+        },
+        "air": {
+            "title": "Transport Aérien",
+            "slug": "transport-aerien",
+            "description": "Services de fret aérien rapides pour vos marchandises urgentes. Connexion mondiale en temps record.",
+            "long_description": "Pour vos envois les plus urgents et précieux, notre service de transport aérien garantit une rapidité inégalée. Nous collaborons avec les plus grandes compagnies aériennes pour sécuriser vos espaces de fret.",
+            "features": [
+                "Priorité express",
+                "Réseau aérien mondial",
+                "Sûreté maximale",
+                "Solutions Premium"
+            ],
+            "meta": {
+                "title": "Transport Aérien - ORANOS TRANS | Solution Fret Urgent",
+                "description": "Rapidité absolue. ORANOS TRANS transporte vos marchandises par air partout dans le monde avec un service premium."
+            }
+        }
+    },
+    "about": {
+        "title": "Qui sommes-nous",
+        "subtitle": "Votre partenaire de confiance en transport et logistique depuis plus d'une décennie.",
+        "history": {
+            "title": "Notre Histoire",
+            "content": "Fondée sur la passion de l'excellence logistique, ORANOS TRANS a évolué pour devenir un acteur majeur du transport. Notre parcours est jalonné de défis relevés et de solutions innovantes apportées à nos clients."
+        },
+        "values": {
+            "title": "Nos Valeurs",
+            "items": [
+                {
+                    "title": "Fiabilité",
+                    "description": "Nous respectons nos engagements et vos délais, quoi qu'il arrive."
+                },
+                {
+                    "title": "Performance",
+                    "description": "L'optimisation constante de nos processus pour votre compétitivité."
+                },
+                {
+                    "title": "Expertise",
+                    "description": "Une équipe qualifiée et passionnée par les métiers de la logistique."
+                }
+            ]
+        },
+        "vision": {
+            "title": "Notre Vision",
+            "content": "Devenir la référence incontournable du transport global en alliant innovation technologique et respect des standards de qualité internationaux."
+        }
+    },
+    "contact": {
+        "title": "Contactez-nous",
+        "subtitle": "Une question ? Un projet ? Notre équipe est à votre écoute.",
+        "form": {
+            "name": "Nom complet",
+            "email": "Adresse email",
+            "phone": "Téléphone",
+            "subject": "Sujet",
+            "message": "Message",
+            "send": "Envoyer le message",
+            "placeholder_name": "Votre nom",
+            "placeholder_email": "votre@email.com",
+            "placeholder_phone": "+33 6 00 00 00 00",
+            "placeholder_subject": "Sujet de votre demande",
+            "placeholder_message": "Comment pouvons-nous vous aider ?"
+        },
+        "info": {
+            "title": "Coordonnées",
+            "address": "Siège social ORANOS TRANS, 75000 Paris, France",
+            "phone": "+33 1 23 45 67 89",
+            "email": "contact@oranos-trans.com"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Politique de confidentialité",
+            "content": "Votre vie privée est importante pour nous. Cette politique explique comment nous traitons vos données personnelles."
+        },
+        "terms": {
+            "title": "Conditions générales",
+            "content": "En utilisant notre site, vous acceptez nos conditions d'utilisation."
+        },
+        "mentions": {
+            "title": "Mentions légales",
+            "content": "ORANOS TRANS SAS - SIRET 123 456 789 00010 - Capital social 10 000€"
+        }
+    },
+    "quote": {
+        "title": "Demander un devis personnalisé",
+        "subtitle": "Optimisez votre logistique avec une offre sur mesure.",
+        "sections": {
+            "cargo": "1. Informations Cargaison",
+            "transport": "2. Type de Transport & Matériel",
+            "documents": "3. Documents & Pièces Jointes",
+            "client": "4. Informations Contact"
+        },
+        "fields": {
+            "departure": "Point de départ (Ville / Pays)",
+            "arrival": "Point d'arrivée (Ville / Pays)",
+            "nature": "Nature des marchandises",
+            "weight": "Poids total (kg / tonnes)",
+            "dimensions": "Dimensions globales (Volume m³)",
+            "palettes": "Nombre de palettes",
+            "transport_type": "Type de transport souhaité",
+            "truck_type": "Type de camion",
+            "trailer_type": "Type de remorque",
+            "docs_label": "Documents de cargaison (Packing List, Excel...)",
+            "docs_info": "PDF, Excel (xls, xlsx), CSV - Max 10MB",
+            "name": "Nom & Prénom",
+            "email": "Email professionnel",
+            "phone": "Téléphone",
+            "company": "Société",
+            "submit": "Obtenir un devis",
+            "gdpr": "En envoyant ce formulaire, j'accepte que mes données soient traitées conformément à la politique de confidentialité d'ORANOS TRANS."
+        },
+        "options": {
+            "transport": {
+                "road_national": "Transport routier national",
+                "road_international": "Transport routier international",
+                "sea_international": "Transport international maritime",
+                "air_international": "Transport international aérien"
+            },
+            "trucks": {
+                "ridel": "Ridel",
+                "bache": "Bâché",
+                "tole": "Tôlé"
+            },
+            "trailers": {
+                "bache": "Bâchée",
+                "tole": "Tôlée",
+                "frigo": "Frigorifique (Frigo)"
+            }
+        },
+        "status": {
+            "sending": "Envoi en cours...",
+            "success": "Demande envoyée avec succès ! Notre équipe vous contactera sous peu.",
+            "error": "Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone."
+        }
+    }
+}

@@ -1,0 +1,204 @@
+{
+    "navigation": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About Us",
+        "contact": "Contact",
+        "quote": "Request a Quote"
+    },
+    "home": {
+        "hero": {
+            "title": "Global Logistics & Transport Expertise",
+            "subtitle": "ORANOS TRANS: Your trusted partner for road, sea, air, and local transport solutions.",
+            "cta": "Explore Our Services"
+        },
+        "services_section": {
+            "title": "Our Expertise Hubs",
+            "subtitle": "Tailored solutions for all your logistical needs"
+        }
+    },
+    "services": {
+        "local": {
+            "title": "Local Transport",
+            "slug": "transport-local",
+            "description": "Fast and secure delivery at the urban and suburban level. Maximum flexibility for your urgent runs.",
+            "long_description": "Our local transport service is designed to meet the speed and reliability requirements of businesses and individuals in urban environments. Whether for urgent envelopes or bulky goods, we ensure a seamless delivery.",
+            "features": [
+                "Same-day delivery",
+                "Real-time tracking",
+                "Adapted fleet (Vans, Trucks)",
+                "24/7 Service"
+            ],
+            "meta": {
+                "title": "Local Transport - ORANOS TRANS | Fast Urban Delivery",
+                "description": "Need a reliable local transporter? ORANOS TRANS handles your urban deliveries with speed and expertise."
+            }
+        },
+        "road": {
+            "title": "Road Transport",
+            "slug": "transport-routier",
+            "description": "Flexible solutions for national and regional road transport. A modern fleet for all your goods.",
+            "long_description": "ORANOS TRANS offers tailored road transport solutions, covering the entire national and regional territory. We manage all types of loads, from Less than Truckload (LTL) to Full Truckload (FTL).",
+            "features": [
+                "National coverage",
+                "FTL & LTL Transport",
+                "On-time delivery",
+                "Certified security"
+            ],
+            "meta": {
+                "title": "Road Transport - ORANOS TRANS | National & Regional Freight",
+                "description": "Expert in national road transport. ORANOS TRANS guarantees the safety and punctuality of your road shipments."
+            }
+        },
+        "sea": {
+            "title": "Sea Transport",
+            "slug": "transport-maritime",
+            "description": "Import/Export Cargo via international sea routes. Competitive FCL and LCL solutions.",
+            "long_description": "Thanks to our network of port partners, we offer global sea transport solutions. We manage the entire logistics chain, from stuffing to customs formalities.",
+            "features": [
+                "FCL (Full Container Load)",
+                "LCL (Less than Container Load)",
+                "Port logistics",
+                "Customs management"
+            ],
+            "meta": {
+                "title": "Sea Transport - ORANOS TRANS | Global Import/Export",
+                "description": "Optimize your sea transport costs with ORANOS TRANS. Expert in port logistics and international freight."
+            }
+        },
+        "air": {
+            "title": "Air Transport",
+            "slug": "transport-aerien",
+            "description": "Fast air freight services for your urgent goods. Worldwide connection in record time.",
+            "long_description": "For your most urgent and precious shipments, our air transport service guarantees unparalleled speed. We collaborate with major airlines to secure your cargo space.",
+            "features": [
+                "Express priority",
+                "Global air network",
+                "Maximum security",
+                "Premium Solutions"
+            ],
+            "meta": {
+                "title": "Air Transport - ORANOS TRANS | Urgent Freight Solution",
+                "description": "Absolute speed. ORANOS TRANS transports your goods by air worldwide with premium service."
+            }
+        }
+    },
+    "about": {
+        "title": "About Us",
+        "subtitle": "Your trusted partner in transport and logistics for over a decade.",
+        "history": {
+            "title": "Our History",
+            "content": "Founded on a passion for logistical excellence, ORANOS TRANS has evolved into a major player in transport. Our journey is marked by challenges overcome and innovative solutions provided to our clients."
+        },
+        "values": {
+            "title": "Our Values",
+            "items": [
+                {
+                    "title": "Reliability",
+                    "description": "We honor our commitments and your deadlines, no matter what."
+                },
+                {
+                    "title": "Performance",
+                    "description": "Constant optimization of our processes for your competitiveness."
+                },
+                {
+                    "title": "Expertise",
+                    "description": "A qualified team passionate about logistics professions."
+                }
+            ]
+        },
+        "vision": {
+            "title": "Our Vision",
+            "content": "To become the inescapable reference for global transport by combining technological innovation and respect for international quality standards."
+        }
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "A question? A project? Our team is listening.",
+        "form": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "phone": "Phone",
+            "subject": "Subject",
+            "message": "Message",
+            "send": "Send Message",
+            "placeholder_name": "Your name",
+            "placeholder_email": "your@email.com",
+            "placeholder_phone": "+1 234 567 890",
+            "placeholder_subject": "Subject of your request",
+            "placeholder_message": "How can we help you?"
+        },
+        "info": {
+            "title": "Contact Details",
+            "address": "ORANOS TRANS Headquarters, 75000 Paris, France",
+            "phone": "+33 1 23 45 67 89",
+            "email": "contact@oranos-trans.com"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Privacy Policy",
+            "content": "Your privacy is important to us. This policy explains how we handle your personal data."
+        },
+        "terms": {
+            "title": "Terms & Conditions",
+            "content": "By using our site, you agree to our terms of use."
+        },
+        "mentions": {
+            "title": "Legal Notice",
+            "content": "ORANOS TRANS SAS - SIRET 123 456 789 00010 - Share capital 10,000€"
+        }
+    },
+    "quote": {
+        "title": "Request a Tailored Quote",
+        "subtitle": "Optimize your logistics with a customized offer.",
+        "sections": {
+            "cargo": "1. Cargo Information",
+            "transport": "2. Transport Type & Equipment",
+            "documents": "3. Documents & Attachments",
+            "client": "4. Contact Information"
+        },
+        "fields": {
+            "departure": "Departure Point (City / Country)",
+            "arrival": "Arrival Point (City / Country)",
+            "nature": "Nature of goods",
+            "weight": "Total weight (kg / tons)",
+            "dimensions": "Overall dimensions (Volume m³)",
+            "palettes": "Number of palettes",
+            "transport_type": "Desired transport type",
+            "truck_type": "Truck type",
+            "trailer_type": "Trailer type",
+            "docs_label": "Cargo documents (Packing List, Excel...)",
+            "docs_info": "PDF, Excel (xls, xlsx), CSV - Max 10MB",
+            "name": "Full Name",
+            "email": "Professional Email",
+            "phone": "Phone",
+            "company": "Company",
+            "submit": "Get a Quote",
+            "gdpr": "By submitting this form, I agree that my data will be processed in accordance with ORANOS TRANS' privacy policy."
+        },
+        "options": {
+            "transport": {
+                "road_national": "National road transport",
+                "road_international": "International road transport",
+                "sea_international": "International sea transport",
+                "air_international": "International air transport"
+            },
+            "trucks": {
+                "ridel": "Ridel",
+                "bache": "Curtain-sided (Bâché)",
+                "tole": "Box truck (Tôlé)"
+            },
+            "trailers": {
+                "bache": "Curtain-sided (Bâchée)",
+                "tole": "Box trailer (Tôlée)",
+                "frigo": "Refrigerated (Frigo)"
+            }
+        },
+        "status": {
+            "sending": "Sending...",
+            "success": "Request sent successfully! Our team will contact you shortly.",
+            "error": "An error occurred. Please try again or contact us by phone."
+        }
+    }
+}
