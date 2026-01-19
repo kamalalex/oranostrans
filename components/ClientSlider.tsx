@@ -10,8 +10,11 @@ const clients = [
     { name: 'CMA CGM', logo: '/images/clients/cma-cgm.png' },
     { name: 'Samsung', logo: '/images/clients/samsung.png' },
     { name: 'BYD', logo: '/images/clients/byd.png' },
-    { name: 'Daikin', logo: '/images/services/air-transport-hero.jpg' }, // Placeholder for variety
-    { name: 'Cosco', logo: '/images/services/sea-transport-hero.jpg' }, // Placeholder for variety
+    { name: 'Daikin', logo: '/images/clients/daikin.png' },
+    { name: 'Aswak Assalam', logo: '/images/clients/aswak-assalam.jpg' },
+    { name: 'Bimbo', logo: '/images/clients/bimbo.png' },
+    { name: 'Sapress', logo: '/images/clients/sapress.jpg' },
+    { name: 'Odyssée', logo: '/images/clients/odyssee.png' },
 ]
 
 // To create a seamless loop, we repeat the clients array
