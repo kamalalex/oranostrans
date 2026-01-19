@@ -58,15 +58,9 @@ export default function AdvancedQuoteForm({ dict, lang }: AdvancedQuoteFormProps
                 data.append('files', file)
             })
 
-            // Add the second email as a CC for Formspree
-            data.append('_cc', 'kamal@oranostrans.com')
-
-            const response = await fetch('https://formspree.io/f/rmi.search@gmail.com', {
+            const response = await fetch('/api/send-quote.php', {
                 method: 'POST',
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                body: data
             })
 
             if (response.ok) {
