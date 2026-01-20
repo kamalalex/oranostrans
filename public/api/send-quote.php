@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Configuration
 $to = "kamal@oranostrans.com, rmi.search@gmail.com";
 $from_email = "contact@oranostrans.com"; // Must be an email from your Hostinger domain
-$subject = "Nouvelle Demande de Devis - ORANOS TRANS";
+$orderRef = "QT-" . date("Ymd") . "-" . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
+$subject = "Nouvelle Demande de Devis [$orderRef] - ORANOS TRANS";
 
 // Extract data
 $departure = $_POST['departure'] ?? 'N/A';
@@ -51,6 +52,7 @@ $message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
 $body = "
 <div style='font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>
     <h2 style='color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;'>Nouvelle Demande de Devis</h2>
+    <p style='font-size: 16px; font-weight: bold; color: #2563eb;'>Référence : $orderRef</p>
     
     <h3 style='color: #444;'>1. Cargaison</h3>
     <p><strong>Départ :</strong> $departure</p>
@@ -101,6 +103,31 @@ $message .= "--$boundary--";
 
 // Send email
 if (mail($to, $subject, $message, $headers)) {
+    // Accusé de réception
+    $ack_headers = "From: ORANOS TRANS <kamal@oranostrans.com>\r\n";
+    $ack_headers .= "MIME-Version: 1.0\r\n";
+    $ack_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    $ack_subject = "Accusé de réception - Votre demande de devis [$orderRef] chez ORANOS TRANS";
+    $greeting = (!empty($name) && $name !== 'N/A') ? "Bonjour $name," : "Bonjour,";
+    $ack_body = "
+    <div style='font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>
+        <div style='text-align: center; margin-bottom: 20px;'>
+            <h2 style='color: #2563eb; margin: 0;'>Merci de votre confiance</h2>
+            <p style='color: #888; margin-top: 5px;'>Référence de votre demande : <strong>$orderRef</strong></p>
+        </div>
+        <p>$greeting</p>
+        <p>Nous avons bien reçu votre demande de devis via notre site web.</p>
+        <p>Le traitement de votre demande est en cours et notre équipe vous contactera dans les plus brefs délais pour vous proposer une solution adaptée à vos besoins.</p>
+        <br>
+        <p>Cordialement,</p>
+        <p style='margin-bottom: 5px;'><strong>L'équipe ORANOS TRANS</strong></p>
+        <a href='https://www.oranostrans.com' style='color: #2563eb; text-decoration: none; font-weight: bold;'>www.oranostrans.com</a>
+    </div>
+    ";
+
+    @mail($email, $ack_subject, $ack_body, $ack_headers);
+
     echo json_encode(["success" => true]);
 } else {
     http_response_code(500);
