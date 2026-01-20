@@ -15,6 +15,9 @@ export async function POST(request: Request) {
 
         const files = formData.getAll('files') as File[]
 
+        // Generate Quote Reference
+        const orderRef = `QT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}`
+
         // Transporter configuration
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST || 'smtp.hostinger.com',
@@ -37,23 +40,24 @@ export async function POST(request: Request) {
             })
         )
 
-        // Email content
+        // 1. Notification Email to ORANOS TRANS
         const mailOptions = {
             from: `"ORANOS TRANS" <${process.env.SMTP_USER || 'contact@oranostrans.com'}>`,
-            to: process.env.CONTACT_EMAIL || 'contact@oranostrans.com',
+            to: process.env.CONTACT_EMAIL || 'kamal@oranostrans.com, rmi.search@gmail.com',
             replyTo: data.email,
-            subject: `Nouveau Devis : ${data.departure} ➔ ${data.arrival} (${data.company || data.name})`,
+            subject: `Nouvelle Demande de Devis [${orderRef}] - ORANOS TRANS`,
             html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
                     <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">Nouvelle Demande de Devis</h2>
+                    <p style="font-size: 16px; font-weight: bold; color: #2563eb;">Référence : ${orderRef}</p>
                     
                     <h3 style="color: #444;">1. Cargaison</h3>
                     <p><strong>Départ :</strong> ${data.departure}</p>
                     <p><strong>Arrivée :</strong> ${data.arrival}</p>
                     <p><strong>Nature :</strong> ${data.nature}</p>
-                    <p><strong>Poids :</strong> ${data.weight}</p>
-                    ${data.dimensions ? `<p><strong>Dimensions :</strong> ${data.dimensions}</p>` : ''}
-                    ${data.palettes ? `<p><strong>Nb Palettes :</strong> ${data.palettes}</p>` : ''}
+                    <p><strong>Poids :</strong> ${data.weight} Kg</p>
+                    <p><strong>Dimensions :</strong> ${data.dimensions || 'N/A'} m3</p>
+                    <p><strong>Nb Palettes :</strong> ${data.palettes || 'N/A'} Palettes</p>
 
                     <h3 style="color: #444;">2. Transport</h3>
                     <p><strong>Type :</strong> ${data.transportType}</p>
@@ -73,6 +77,32 @@ export async function POST(request: Request) {
         }
 
         await transporter.sendMail(mailOptions)
+
+        // 2. Acknowledgment Email to Client
+        const greeting = (data.name && data.name !== 'N/A') ? `Bonjour ${data.name},` : "Bonjour,";
+        const ackMailOptions = {
+            from: `"ORANOS TRANS" <kamal@oranostrans.com>`,
+            to: data.email,
+            replyTo: 'kamal@oranostrans.com',
+            subject: `Accusé de réception - Votre demande de devis [${orderRef}] chez ORANOS TRANS`,
+            html: `
+                <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h2 style="color: #2563eb; margin: 0;">Merci de votre confiance</h2>
+                        <p style="color: #888; margin-top: 5px;">Référence de votre demande : <strong>${orderRef}</strong></p>
+                    </div>
+                    <p>${greeting}</p>
+                    <p>Nous avons bien reçu votre demande de devis via notre site web.</p>
+                    <p>Le traitement de votre demande est en cours et notre équipe vous contactera dans les plus brefs délais pour vous proposer une solution adaptée à vos besoins.</p>
+                    <br>
+                    <p>Cordialement,</p>
+                    <p style="margin-bottom: 5px;"><strong>L'équipe ORANOS TRANS</strong></p>
+                    <a href="https://www.oranostrans.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">www.oranostrans.com</a>
+                </div>
+            `,
+        }
+
+        await transporter.sendMail(ackMailOptions).catch(err => console.error('Ack email failed:', err))
 
         return NextResponse.json({ success: true })
     } catch (error: any) {
