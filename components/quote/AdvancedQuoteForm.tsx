@@ -59,9 +59,14 @@ export default function AdvancedQuoteForm({ dict, lang }: AdvancedQuoteFormProps
             })
 
             // Determine endpoint: use Next.js API in dev, PHP script in static production
-            const endpoint = window.location.hostname === 'localhost'
-                ? '/api/quote'
-                : '/api/send-quote.php';
+            const isLocal =
+                window.location.hostname === 'localhost' ||
+                window.location.hostname === '127.0.0.1' ||
+                window.location.hostname.startsWith('192.168.') ||
+                window.location.hostname.startsWith('10.') ||
+                window.location.hostname.endsWith('.local');
+
+            const endpoint = isLocal ? '/api/quote' : '/api/send-quote.php';
 
             const response = await fetch(endpoint, {
                 method: 'POST',

@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // output: 'export', // Desactivé pour le développement local (permet le middleware)
   trailingSlash: true,
   images: {
     unoptimized: true,
