@@ -6,6 +6,7 @@ let defaultLocale = 'fr'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  console.log('Middleware triggered for:', pathname)
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )

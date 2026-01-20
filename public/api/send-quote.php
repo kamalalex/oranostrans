@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Configuration
-$to = "kamal@oranostrans.com, rmi.search@gmail.com";
+$recipients = ["kamal@oranostrans.com", "rmi.search@gmail.com"];
 $from_email = "contact@oranostrans.com"; // Must be an email from your Hostinger domain
 $orderRef = "QT-" . date("Ymd") . "-" . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 $subject = "Nouvelle Demande de Devis [$orderRef] - ORANOS TRANS";
@@ -24,9 +24,9 @@ $subject = "Nouvelle Demande de Devis [$orderRef] - ORANOS TRANS";
 $departure = $_POST['departure'] ?? 'N/A';
 $arrival = $_POST['arrival'] ?? 'N/A';
 $nature = $_POST['nature'] ?? 'N/A';
-$weight = $_POST['weight'] ?? 'N/A';
-$dimensions = $_POST['dimensions'] ?? 'N/A';
-$palettes = $_POST['palettes'] ?? 'N/A';
+$weight = (isset($_POST['weight']) && $_POST['weight'] !== '') ? $_POST['weight']." Kg" : 'N/A';
+$dimensions = (isset($_POST['dimensions']) && $_POST['dimensions'] !== '') ? $_POST['dimensions']." m3" : 'N/A';
+$palettes = (isset($_POST['palettes']) && $_POST['palettes'] !== '') ? $_POST['palettes']." Palettes" : 'N/A';
 $transportType = $_POST['transportType'] ?? 'N/A';
 $truckType = $_POST['truckType'] ?? 'N/A';
 $trailerType = $_POST['trailerType'] ?? 'N/A';
@@ -41,8 +41,12 @@ $boundary = md5(time());
 // Headers
 $headers = "From: ORANOS TRANS <$from_email>\r\n";
 $headers .= "Reply-To: $email\r\n";
+$headers .= "Return-Path: <$from_email>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+$headers .= "Date: " . date("r") . "\r\n";
+$headers .= "Message-ID: <" . time() . "rec-" . mt_rand() . "@oranostrans.com>\r\n";
 
 // Email Body
 $message = "--$boundary\r\n";
@@ -101,12 +105,24 @@ if (!empty($_FILES['files'])) {
 
 $message .= "--$boundary--";
 
-// Send email
-if (mail($to, $subject, $message, $headers)) {
+// Send email to each recipient individually for better deliverability
+$success = true;
+foreach ($recipients as $to) {
+    if (!mail($to, $subject, $message, $headers)) {
+        $success = false;
+    }
+}
+
+if ($success) {
     // Accusé de réception
     $ack_headers = "From: ORANOS TRANS <kamal@oranostrans.com>\r\n";
+    $ack_headers .= "Reply-To: kamal@oranostrans.com\r\n";
+    $ack_headers .= "Return-Path: <kamal@oranostrans.com>\r\n";
     $ack_headers .= "MIME-Version: 1.0\r\n";
     $ack_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $ack_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+    $ack_headers .= "Date: " . date("r") . "\r\n";
+    $ack_headers .= "Message-ID: <" . time() . "ack-" . mt_rand() . "@oranostrans.com>\r\n";
 
     $ack_subject = "Accusé de réception - Votre demande de devis [$orderRef] chez ORANOS TRANS";
     $greeting = (!empty($name) && $name !== 'N/A') ? "Bonjour $name," : "Bonjour,";
